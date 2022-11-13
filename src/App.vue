@@ -21,7 +21,8 @@ export default {
 			fetch(url)
 				.then((response) => response.json())
 				.then((data) => (this.users = data.results))
-				.then(() => (this.isFetchingUsers = false));
+				.then(() => (this.isFetchingUsers = false))
+				.then(() => window.scrollTo(0, 0));
 		},
 		goToPreviousPage() {
 			this.currentPage--;
@@ -30,7 +31,12 @@ export default {
 			fetch(url)
 				.then((response) => response.json())
 				.then((data) => (this.users = data.results))
-				.then(() => (this.isFetchingUsers = false));
+				.then(() => (this.isFetchingUsers = false))
+				.then(() => window.scrollTo(0, 0));
+		},
+		downloadCurrentPage() {
+			console.log('tadaa');
+			//https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
 		},
 	},
 	created() {
@@ -68,6 +74,14 @@ export default {
 				Next
 			</button>
 		</div>
+		<button
+			@click="downloadCurrentPage"
+			:class="{ 'is--disabled': isFetchingUsers }"
+			:disabled="currentPage === 500 || isFetchingUsers"
+			class="member-list__button m--download"
+		>
+			Download CSV
+		</button>
 	</div>
 </template>
 
@@ -89,13 +103,27 @@ export default {
 		border-radius: 4px;
 		box-shadow: 1px 1px 2px var(--box-shadow);
 		padding: 0.8rem 2.4rem;
+		max-width: 18rem;
 		font-size: 1.2rem;
+		&:hover {
+			cursor: pointer;
+		}
 		&.is {
 			&--disabled {
 				opacity: 0.5;
 			}
 		}
 		&.m {
+			&--download {
+				background-color: transparent;
+				color: var(--primary);
+				border: 1px solid var(--primary);
+				align-self: end;
+				margin: 1rem;
+				&:hover {
+					background-color: var(--black_s10);
+				}
+			}
 			&--next {
 				margin-left: 2rem;
 			}
