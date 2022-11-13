@@ -17,7 +17,6 @@ export default {
 		<div v-bind:key="user.login.uuid" v-for="user in users">
 			<Card v-bind:user="user" />
 		</div>
-		<Card />
 	</div>
 </template>
 

@@ -7,16 +7,16 @@ export default {
 
 <template>
 	<div>
-		<!-- <img /> -->
-		<!-- <h2>{{ user.name.first }} {{ user.name.last }}</h2> -->
+		<img :src="user.picture.large" />
+		<h2>{{ user.name.first }} {{ user.name.last }}</h2>
 		<ul>
-			<li>Age: 30</li>
-			<li>Gender: Female</li>
+			<li>Age: {{ user.dob.age }}</li>
+			<li>Gender: {{ user.gender }}</li>
 			<li>
 				Email:
-				<a href="mailto:email@email.com">email@email.com</a>
+				<a :href="`mailto:${user.email}`">{{ user.email }}</a>
 			</li>
-			<li>Phone: (999) 999-9999</li>
+			<li>Phone: {{ user.phone }}</li>
 		</ul>
 	</div>
 </template>
