@@ -10,29 +10,36 @@ export default {
 		return {
 			users: [],
 			currentPage: 1,
+			isFetchingUsers: false,
 		};
 	},
 	methods: {
 		goToNextPage() {
 			this.currentPage++;
+			this.isFetchingUsers = true;
 			const url = `https://randomuser.me/api/?page=${this.currentPage}&results=10&seed=members`;
 			fetch(url)
 				.then((response) => response.json())
-				.then((data) => (this.users = data.results));
+				.then((data) => (this.users = data.results))
+				.then(() => (this.isFetchingUsers = false));
 		},
 		goToPreviousPage() {
 			this.currentPage--;
+			this.isFetchingUsers = true;
 			const url = `https://randomuser.me/api/?page=${this.currentPage}&results=10&seed=members`;
 			fetch(url)
 				.then((response) => response.json())
-				.then((data) => (this.users = data.results));
+				.then((data) => (this.users = data.results))
+				.then(() => (this.isFetchingUsers = false));
 		},
 	},
 	created() {
 		const url = 'https://randomuser.me/api/?page=1&results=10&seed=members';
+		this.isFetchingUsers = true;
 		fetch(url)
 			.then((response) => response.json())
-			.then((data) => (this.users = data.results));
+			.then((data) => (this.users = data.results))
+			.then(() => (this.isFetchingUsers = false));
 	},
 };
 </script>
@@ -46,14 +53,16 @@ export default {
 		<div role="presentation">
 			<button
 				@click="goToPreviousPage"
-				:disabled="currentPage === 1"
+				:class="{ 'is--disabled': currentPage === 1 }"
+				:disabled="currentPage === 1 || isFetchingUsers"
 				class="member-list__button"
 			>
 				Back
 			</button>
 			<button
 				@click="goToNextPage"
-				:disabled="currentPage === 500"
+				:class="{ 'is--disabled': currentPage === 500 }"
+				:disabled="currentPage === 500 || isFetchingUsers"
 				class="member-list__button m--next"
 			>
 				Next
@@ -81,8 +90,10 @@ export default {
 		box-shadow: 1px 1px 2px var(--box-shadow);
 		padding: 0.8rem 2.4rem;
 		font-size: 1.2rem;
-		&:disabled {
-			opacity: 0.5;
+		&.is {
+			&--disabled {
+				opacity: 0.5;
+			}
 		}
 		&.m {
 			&--next {
