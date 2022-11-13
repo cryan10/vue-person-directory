@@ -13,11 +13,17 @@ export default {
 </script>
 
 <template>
-	<div>
+	<div class="directory">
 		<div v-bind:key="user.login.uuid" v-for="user in users">
 			<Card v-bind:user="user" />
 		</div>
 	</div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.directory {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+}
+</style>
