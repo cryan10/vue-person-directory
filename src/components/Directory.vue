@@ -13,8 +13,8 @@ export default {
 </script>
 
 <template>
-	<div class="directory">
-		<div v-bind:key="user.login.uuid" v-for="user in users">
+	<div class="directory" role="presentation">
+		<div v-bind:key="user.login.uuid" v-for="user in users" role="presentation">
 			<Card v-bind:user="user" />
 		</div>
 	</div>
@@ -25,5 +25,12 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2rem;
+	background-color: var(--accent);
+	max-width: fit-content;
+	min-width: 660px;
+	min-height: 800px;
+	padding: 2rem;
+	border-radius: 6px;
+	box-shadow: 1px 1px 2px #0000001f;
 }
 </style>
