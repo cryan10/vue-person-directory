@@ -81,6 +81,9 @@ export default {
 		box-shadow: 1px 1px 2px var(--box-shadow);
 		padding: 0.8rem 2.4rem;
 		font-size: 1.2rem;
+		&:disabled {
+			opacity: 0.5;
+		}
 		&.m {
 			&--next {
 				margin-left: 2rem;
