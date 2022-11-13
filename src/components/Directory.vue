@@ -1,6 +1,4 @@
 <script>
-//import card component
-import { useSSRContext } from 'vue';
 import Card from './Card.vue';
 
 export default {
@@ -16,7 +14,6 @@ export default {
 
 <template>
 	<div>
-		<h2>test test 123</h2>
 		<div v-bind:key="user.login.uuid" v-for="user in users">
 			<Card v-bind:user="user" />
 		</div>
