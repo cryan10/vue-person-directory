@@ -38,13 +38,14 @@ export default {
 	grid-template-columns: min-content auto;
 	column-gap: 1rem;
 	border-radius: 4px;
-	box-shadow: 1px 1px 2px #0000001f;
+	box-shadow: 1px 1px 2px var(--box-shadow);
 	background-color: var(--white);
 	padding-right: 1rem;
 	&__info {
 		padding: 0;
 		margin: 0;
 		list-style: none;
+		color: var(--black_s80);
 	}
 	&__image {
 		grid-area: 1/1/3/2;
@@ -63,7 +64,7 @@ export default {
 		text-transform: capitalize;
 	}
 	&__link {
-		color: var(--secondary);
+		color: var(--primary);
 	}
 }
 </style>

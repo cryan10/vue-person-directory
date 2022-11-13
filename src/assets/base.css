@@ -1,7 +1,7 @@
 :root {
-  --primary: #36453b;
-  --secondary: #754043;
-  --accent: #89a7a7;
+  --primary: #13260E;
+  --secondary: #D9B1A3;
+  --accent: #D6D98B;
   --white: #ffffff;
   --offWhite: #fafafa;
   --black: #000000;
@@ -10,6 +10,8 @@
   --black_s40: #999999;
   --black_s20: #cccccc;
   --black_s10: #e6e6e6;
+  --box-shadow: #0000001f;
+
 
   --fontStack: "Source Sans Pro", sans-serif;
   --fontStackAlt: "Oswald", sans-serif;

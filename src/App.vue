@@ -27,6 +27,10 @@ export default {
 		<main>
 			<Directory v-bind:users="users" />
 		</main>
+		<div role="presentation">
+			<button class="member-list__button">Back</button>
+			<button class="member-list__button m--next">Next</button>
+		</div>
 	</div>
 </template>
 
@@ -37,9 +41,23 @@ export default {
 	align-items: center;
 	&__title {
 		font-family: var(--fontStackAlt);
-		color: var(--offWhite);
+		color: var(--primary);
 		font-size: 2.4rem;
-		letter-spacing: 0.12rem;
+	}
+	&__button {
+		background-color: var(--accent);
+		font-family: var(--fontStackAlt);
+		color: var(--black);
+		border: none;
+		border-radius: 4px;
+		box-shadow: 1px 1px 2px var(--box-shadow);
+		padding: 0.8rem 2.4rem;
+		font-size: 1.2rem;
+		&.m {
+			&--next {
+				margin-left: 2rem;
+			}
+		}
 	}
 }
 </style>

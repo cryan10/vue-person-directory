@@ -25,12 +25,13 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2rem;
-	background-color: var(--accent);
+	background-color: var(--secondary);
 	max-width: fit-content;
 	min-width: 660px;
 	min-height: 800px;
 	padding: 2rem;
+	margin-bottom: 1.5rem;
 	border-radius: 6px;
-	box-shadow: 1px 1px 2px #0000001f;
+	box-shadow: 1px 1px 2px var(--box-shadow);
 }
 </style>
