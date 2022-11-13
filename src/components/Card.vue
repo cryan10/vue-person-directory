@@ -1,11 +1,14 @@
 <script>
-//import card component
+export default {
+	name: 'Card',
+	props: ['user'],
+};
 </script>
 
 <template>
 	<div>
 		<!-- <img /> -->
-		<h2>First Name Last Name</h2>
+		<!-- <h2>{{ user.name.first }} {{ user.name.last }}</h2> -->
 		<ul>
 			<li>Age: 30</li>
 			<li>Gender: Female</li>
