@@ -8,8 +8,6 @@ export default {
 	},
 	props: ['users'],
 };
-
-//loop through and create a button for each page. click will call api again, but for the right page
 </script>
 
 <template>

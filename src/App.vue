@@ -9,9 +9,25 @@ export default {
 	data() {
 		return {
 			users: [],
+			currentPage: 1,
 		};
 	},
-	methods: {},
+	methods: {
+		goToNextPage() {
+			this.currentPage++;
+			const url = `https://randomuser.me/api/?page=${this.currentPage}&results=10&seed=members`;
+			fetch(url)
+				.then((response) => response.json())
+				.then((data) => (this.users = data.results));
+		},
+		goToPreviousPage() {
+			this.currentPage--;
+			const url = `https://randomuser.me/api/?page=${this.currentPage}&results=10&seed=members`;
+			fetch(url)
+				.then((response) => response.json())
+				.then((data) => (this.users = data.results));
+		},
+	},
 	created() {
 		const url = 'https://randomuser.me/api/?page=1&results=10&seed=members';
 		fetch(url)
@@ -28,8 +44,20 @@ export default {
 			<Directory v-bind:users="users" />
 		</main>
 		<div role="presentation">
-			<button class="member-list__button">Back</button>
-			<button class="member-list__button m--next">Next</button>
+			<button
+				@click="goToPreviousPage"
+				:disabled="currentPage === 1"
+				class="member-list__button"
+			>
+				Back
+			</button>
+			<button
+				@click="goToNextPage"
+				:disabled="currentPage === 500"
+				class="member-list__button m--next"
+			>
+				Next
+			</button>
 		</div>
 	</div>
 </template>
