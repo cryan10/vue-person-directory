@@ -41,6 +41,9 @@ export default {
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	justify-items: center;
+	@media (max-width: 768px) {
+		row-gap: 2rem;
+	}
 }
 .button {
 	background-color: var(--accent);
@@ -69,6 +72,10 @@ export default {
 			justify-self: end;
 			margin: 1rem;
 			text-decoration: none;
+			@media (max-width: 768px) {
+				justify-self: center;
+				margin: 0;
+			}
 			&:hover {
 				background-color: var(--black_s10);
 			}
