@@ -41,9 +41,7 @@ export default {
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	justify-items: center;
-	@media (max-width: 768px) {
-		row-gap: 2rem;
-	}
+	row-gap: 2rem;
 }
 .button {
 	background-color: var(--accent);
@@ -70,7 +68,6 @@ export default {
 			color: var(--primary);
 			border: 1px solid var(--primary);
 			justify-self: end;
-			margin: 1rem;
 			text-decoration: none;
 			@media (max-width: 768px) {
 				justify-self: center;

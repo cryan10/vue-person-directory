@@ -24,7 +24,6 @@ export default {
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2rem;
 	background-color: var(--secondary);
-	max-width: fit-content;
 	min-width: 660px;
 	min-height: 800px;
 	padding: 2rem;

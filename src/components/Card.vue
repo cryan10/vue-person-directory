@@ -35,17 +35,22 @@ export default {
 <style scoped lang="scss">
 .card {
 	display: grid;
-	grid-template-columns: min-content auto;
 	column-gap: 1rem;
 	border-radius: 4px;
 	box-shadow: 1px 1px 2px var(--box-shadow);
 	background-color: var(--white);
-	padding-right: 1rem;
+	@media (min-width: 400px) {
+		grid-template-columns: min-content auto;
+		padding-right: 1rem;
+	}
 	&__info {
 		padding: 0;
 		margin: 0;
 		list-style: none;
 		color: var(--black_s80);
+		@media (max-width: 399px) {
+			padding: 0 0.5rem 0.5rem;
+		}
 	}
 	&__image {
 		grid-area: 1/1/3/2;
@@ -53,12 +58,21 @@ export default {
 		border-end-start-radius: 4px;
 		height: 100%;
 		width: fit-content;
+		@media (max-width: 399px) {
+			height: fit-content;
+			width: 100%;
+			border-start-end-radius: 4px;
+			border-end-start-radius: 0;
+		}
 	}
 	&__title {
 		align-self: center;
 		margin: 0;
 		font-family: var(--fontStackAlt);
 		color: var(--primary);
+		@media (max-width: 399px) {
+			margin: 0.5rem 0 0 0.5rem;
+		}
 	}
 	&__gender {
 		text-transform: capitalize;
