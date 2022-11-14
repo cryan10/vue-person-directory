@@ -46,7 +46,12 @@ export default {
 		<h1 class="member-list__title">Our Members</h1>
 		<main>
 			<Directory :users="users" />
-			<Buttons :currentPage="currentPage" :isFetchingUsers="isFetchingUsers" />
+			<Buttons
+				:currentPage="currentPage"
+				:isFetchingUsers="isFetchingUsers"
+				@go-to-previous-page="goToPreviousPage"
+				@go-to-next-page="goToNextPage"
+			/>
 		</main>
 	</div>
 </template>

@@ -9,7 +9,7 @@ export default {
 	<div role="presentation" class="container">
 		<div class="pagination">
 			<button
-				@click="this.$parent.goToPreviousPage()"
+				@click="$emit('go-to-previous-page')"
 				:class="{ 'is--disabled': currentPage === 1 }"
 				:disabled="currentPage === 1 || isFetchingUsers"
 				class="button"
@@ -17,7 +17,7 @@ export default {
 				Back
 			</button>
 			<button
-				@click="this.$parent.goToNextPage()"
+				@click="$emit('go-to-next-page')"
 				:class="{ 'is--disabled': currentPage === 500 }"
 				:disabled="currentPage === 500 || isFetchingUsers"
 				class="button m--next"
