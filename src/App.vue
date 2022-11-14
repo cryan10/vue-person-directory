@@ -24,7 +24,7 @@ export default {
 				.then((data) => (this.users = data.results))
 				.then(() => (this.isFetchingUsers = false))
 				.then(() => window.scrollTo(0, 0))
-				.catch((error) => console.log(error));
+				.catch((error) => console.error(error));
 		},
 		goToNextPage() {
 			this.currentPage++;
