@@ -9,18 +9,18 @@ export default {
 	<div role="presentation" class="container">
 		<div role="presentation">
 			<button
-				@click="$emit('go-to-previous-page')"
 				:class="{ 'is--disabled': currentPage === 1 }"
 				:disabled="currentPage === 1 || isFetchingUsers"
 				class="button"
+				@click="$emit('go-to-previous-page')"
 			>
 				Back
 			</button>
 			<button
-				@click="$emit('go-to-next-page')"
 				:class="{ 'is--disabled': currentPage === 500 }"
 				:disabled="currentPage === 500 || isFetchingUsers"
 				class="button m--next"
+				@click="$emit('go-to-next-page')"
 			>
 				Next
 			</button>
