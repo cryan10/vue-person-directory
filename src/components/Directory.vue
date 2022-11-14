@@ -12,7 +12,7 @@ export default {
 
 <template>
 	<div class="directory" role="presentation">
-		<div v-bind:key="user.login.uuid" v-for="user in users" role="presentation">
+		<div v-bind:key="user.id" v-for="user in users" role="presentation">
 			<Card v-bind:user="user" />
 		</div>
 	</div>

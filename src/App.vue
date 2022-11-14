@@ -14,38 +14,27 @@ export default {
 		};
 	},
 	methods: {
-		goToNextPage() {
-			this.currentPage++;
+		getUsers(currentPage) {
 			this.isFetchingUsers = true;
-			const url = `https://randomuser.me/api/?page=${this.currentPage}&results=10&seed=members`;
+			const url = `https://randomuser.me/api/?page=${currentPage}&results=10&seed=members&inc=gender,name,location,email,phone,id,picture,dob`;
 			fetch(url)
 				.then((response) => response.json())
 				.then((data) => (this.users = data.results))
 				.then(() => (this.isFetchingUsers = false))
 				.then(() => window.scrollTo(0, 0));
+		},
+		goToNextPage() {
+			this.currentPage++;
+			this.getUsers(this.currentPage);
 		},
 		goToPreviousPage() {
 			this.currentPage--;
-			this.isFetchingUsers = true;
-			const url = `https://randomuser.me/api/?page=${this.currentPage}&results=10&seed=members`;
-			fetch(url)
-				.then((response) => response.json())
-				.then((data) => (this.users = data.results))
-				.then(() => (this.isFetchingUsers = false))
-				.then(() => window.scrollTo(0, 0));
-		},
-		downloadCurrentPage() {
-			console.log('tadaa');
-			//https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
+			this.getUsers(this.currentPage);
 		},
 	},
 	created() {
-		const url = 'https://randomuser.me/api/?page=1&results=10&seed=members';
-		this.isFetchingUsers = true;
-		fetch(url)
-			.then((response) => response.json())
-			.then((data) => (this.users = data.results))
-			.then(() => (this.isFetchingUsers = false));
+		//get first page of users from api
+		this.getUsers(1);
 	},
 };
 </script>
@@ -74,14 +63,13 @@ export default {
 				Next
 			</button>
 		</div>
-		<button
-			@click="downloadCurrentPage"
-			:class="{ 'is--disabled': isFetchingUsers }"
-			:disabled="currentPage === 500 || isFetchingUsers"
+		<a
+			:href="`https://randomuser.me/api/?page=${currentPage}&results=10&seed=members&inc=gender,name,location,email,phone,id,picture,dob&format=csv`"
+			download
 			class="member-list__button m--download"
 		>
 			Download CSV
-		</button>
+		</a>
 	</div>
 </template>
 
@@ -120,6 +108,7 @@ export default {
 				border: 1px solid var(--primary);
 				align-self: end;
 				margin: 1rem;
+				text-decoration: none;
 				&:hover {
 					background-color: var(--black_s10);
 				}
