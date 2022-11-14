@@ -31,5 +31,10 @@ export default {
 	margin-bottom: 1.5rem;
 	border-radius: 6px;
 	box-shadow: 1px 1px 2px var(--box-shadow);
+	@media (max-width: 699px) {
+		min-width: 0;
+		min-height: 0;
+		grid-template-columns: 1fr;
+	}
 }
 </style>
