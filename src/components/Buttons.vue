@@ -7,7 +7,7 @@ export default {
 
 <template>
 	<div role="presentation" class="container">
-		<div class="pagination">
+		<div role="presentation">
 			<button
 				@click="$emit('go-to-previous-page')"
 				:class="{ 'is--disabled': currentPage === 1 }"
