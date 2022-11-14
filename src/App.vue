@@ -23,7 +23,8 @@ export default {
 				.then((response) => response.json())
 				.then((data) => (this.users = data.results))
 				.then(() => (this.isFetchingUsers = false))
-				.then(() => window.scrollTo(0, 0));
+				.then(() => window.scrollTo(0, 0))
+				.catch((error) => console.log(error));
 		},
 		goToNextPage() {
 			this.currentPage++;
