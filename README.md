@@ -1,4 +1,10 @@
+# Getting Started
+This a Vuejs project that runs with Vite.
+
+# The Task
 Using the API provided by https://randomuser.me/, create a single page app for a user directory.
+  - Run `npm install` to install dependencies
+  - Run `npm run dev` to run locally
 
 This application does the following:
 
